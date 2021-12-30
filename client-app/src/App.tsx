@@ -19,11 +19,13 @@ function App() {
       <Header as='h2' icon='users' content='Reactivities'></Header>
 
        <List>
-       {activities.map((activity:any) => (
+       {
+        activities.map((activity:any) => (
            <List.Item key={activity.id}>
              {activity.title}
            </List.Item>
-         ))}
+         ))
+        }
        </List> 
     </div>
   );
