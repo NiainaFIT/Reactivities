@@ -15,10 +15,12 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
-    "semantic-ui-css": "https://github.com/Semantic-Org/Semantic-UI-CSS/blob/master/semantic.min.css",
+    "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^2.0.4",
     "typescript": "^4.5.4",
-    "web-vitals": "^2.1.2"
+    "uuid": "^8.3.2",
+    "web-vitals": "^2.1.2",
+    "webpack": "4.44"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -43,5 +45,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/uuid": "^8.3.3"
   }
 }
