@@ -15,8 +15,10 @@ function App() {
   const location = useLocation();
   return (
     <>
+
+ <Route exact path='/' component={HomePage} />
     <Route
-      path = {'/(.+)'}/**any route that matches .plus something*/
+     path={'/(.+)'}/**any route that matches .plus something*/
       render={() => (
         <> 
       <NavBar/>
@@ -29,7 +31,6 @@ function App() {
         </>
       )}
     />
-     
     </>
   );
 }

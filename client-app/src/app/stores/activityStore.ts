@@ -19,6 +19,16 @@ export default class ActivityStore{
             Date.parse(a.date) - Date.parse(b.date));
     }
 
+    get groupedActivities(){
+        return Object.entries(
+            this.activitiesByDate.reduce((activities, activity)=>{
+                const date = activity.date;/**key for each of objects */
+                activities[date] = activities[date] ? [...activities[date], activity] : [activity];/**property object accessor activities[date] so i wiil get property inside activitie that matches date*/
+                    /**if activity with that date exists then add ectivity else create new array with that activity that we execute callback function on*/
+                    return activities;
+            }, {} as {[key: string]: Activity[]})
+        )
+    }
     loadActivities = async () => {
         /**async code goes into try catch block */
         this.loadingInitial = true;
