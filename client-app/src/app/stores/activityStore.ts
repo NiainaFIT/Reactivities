@@ -1,6 +1,7 @@
 import { makeAutoObservable, runInAction } from "mobx"
 import agent from "../api/agent";
 import { Activity } from "../models/activity";
+import {format} from 'date-fns';
 
 export default class ActivityStore{
     /**activities: Activity[] = [];initialize into empty array */
@@ -8,7 +9,7 @@ export default class ActivityStore{
     selectedActivity: Activity | undefined = undefined;/** | is union type that says property can be of type Activity or null */
     editMode = false;
     loading = false;
-    loadingInitial = true;
+    loadingInitial = false;
 
     constructor(){
         makeAutoObservable(this)/**same functionality like makeObservable but less code */
@@ -16,19 +17,20 @@ export default class ActivityStore{
 
     get activitiesByDate(){
         return Array.from(this.activityRegistry.values()).sort((a,b) => 
-            Date.parse(a.date) - Date.parse(b.date));
+            a.date!.getTime() - b.date!.getTime());
     }
 
     get groupedActivities(){
         return Object.entries(
             this.activitiesByDate.reduce((activities, activity)=>{
-                const date = activity.date;/**key for each of objects */
+                const date = format(activity.date!, 'dd MMM yyyy');/**key for each of objects */
                 activities[date] = activities[date] ? [...activities[date], activity] : [activity];/**property object accessor activities[date] so i wiil get property inside activitie that matches date*/
                     /**if activity with that date exists then add ectivity else create new array with that activity that we execute callback function on*/
                     return activities;
             }, {} as {[key: string]: Activity[]})
         )
     }
+
     loadActivities = async () => {
         /**async code goes into try catch block */
         this.loadingInitial = true;
@@ -77,9 +79,10 @@ export default class ActivityStore{
     }
 
     private setActivity = (activity: Activity) => {
-        activity.date = activity.date.split('T')[0];
+        activity.date = new Date(activity.date!);
         this.activityRegistry.set(activity.id, activity);
     }
+    
     setLoadingInitial = ((state: boolean) => {
         this.loadingInitial = state;
     })
