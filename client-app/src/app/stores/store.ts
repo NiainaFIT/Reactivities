@@ -1,16 +1,22 @@
 import { createContext, useContext } from "react";
 import ActivityStore from "./activityStore";
 import CommonStore from "./commonStore";
+import ModalStore from "./modalStore";
+import UserStore from "./userStore";
 
 interface Store{
     activityStore: ActivityStore; /**classes can be used as types*/
     commonStore: CommonStore;
+    userStore: UserStore;
+    modalStore: ModalStore;
 }
 
 export const store: Store = {/**object store of type Store*/
 
     activityStore: new ActivityStore(), /**property activityStore instantiated as ActivityStore*/
-    commonStore: new CommonStore()
+    commonStore: new CommonStore(),
+    userStore: new UserStore(),
+    modalStore: new ModalStore()
 }
 
 /**so store would be available in react context*/

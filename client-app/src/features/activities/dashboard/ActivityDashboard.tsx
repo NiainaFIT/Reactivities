@@ -14,7 +14,7 @@ export default observer(function ActivityDashboard(){
             if(activityRegistry.size <= 1) loadActivities();
         }, [activityRegistry.size, loadActivities])/**passing activityStore as a dependency to useEfect */
       
-        if(activityStore.loadingInitial) return <LoadingComponent content='Loading App...'/>
+        if(activityStore.loadingInitial) return <LoadingComponent content='Loading activities...'/>
 
     return(
         <Grid>
