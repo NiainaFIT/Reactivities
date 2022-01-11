@@ -1,5 +1,6 @@
-using Domain;
 using FluentValidation;
+
+using Domain;
 
 namespace Application.Activities
 {

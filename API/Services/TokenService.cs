@@ -2,10 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Text;
-using Domain;
-using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
+
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.Extensions.Configuration;
+
+using Domain;
 
 namespace API.Services
 {
