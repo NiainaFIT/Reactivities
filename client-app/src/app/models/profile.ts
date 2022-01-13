@@ -5,7 +5,7 @@ export interface Profile{
     username: string,
     bio?: string,
     image?: string,
-    //photos: IPhoto[]
+    photos: Photo[]
 }
 export class Profile implements Profile{
     constructor (user: User){

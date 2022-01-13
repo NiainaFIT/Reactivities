@@ -3,7 +3,6 @@ import {makeAutoObservable, runInAction} from 'mobx';
 import agent from "../api/agent";
 import { store } from "./store";
 import { history } from '../..'
-import { listenerCount } from "process";
 
 export default class UserStore{
     user: User | null = null;
@@ -59,5 +58,11 @@ export default class UserStore{
             
             throw error;
         }
+    }
+
+    setImage(image: string){
+        if(this.user){
+            this.user.image = image;
+        }  
     }
 }
