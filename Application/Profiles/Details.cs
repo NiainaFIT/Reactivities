@@ -1,16 +1,16 @@
-﻿using Application.Core;
-using Application.Interfaces;
+﻿using System.Threading;
+using System.Threading.Tasks;
+
+using Microsoft.EntityFrameworkCore;
+
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
+
+using Application.Core;
+
 using Persistence;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+
 
 namespace Application.Profiles
 {

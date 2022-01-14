@@ -1,16 +1,16 @@
-﻿using Application.Core;
-using Application.Interfaces;
-using Domain;
-using MediatR;
-using Microsoft.AspNetCore.Http;
-using Microsoft.EntityFrameworkCore;
-using Persistence;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+
+using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
+
+using MediatR;
+
+using Application.Core;
+using Application.Interfaces;
+using Domain;
+using Persistence;
 
 namespace Application.Photos
 {

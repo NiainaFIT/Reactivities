@@ -3,6 +3,7 @@ using AutoMapper;
 
 using Domain;
 using Application.Activities;
+using Application.Comments;
 
 namespace Application.Core
 {
@@ -23,6 +24,11 @@ namespace Application.Core
 
             CreateMap<AppUser, Profiles.Profile>()
                 .ForMember(dest => dest.Image, opt => opt.MapFrom(src => src.Photos.FirstOrDefault(x => x.IsMain).Url));
+
+            CreateMap<Comment, CommentDto>()
+                .ForMember(dest => dest.DisplayName, opt => opt.MapFrom(src => src.Author.DisplayName))
+                .ForMember(dest => dest.Username, opt => opt.MapFrom(src => src.Author.UserName))
+                .ForMember(dest => dest.Image, opt => opt.MapFrom(src => src.Author.Photos.FirstOrDefault(x => x.IsMain).Url));
         }
     }
 }

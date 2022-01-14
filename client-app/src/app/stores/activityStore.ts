@@ -187,6 +187,10 @@ export default class ActivityStore{
             runInAction(() => this.loading = false);
         }
     }
+
+    clearSelectedActivity = () => {
+        this.selectedActivity = undefined;
+    }
     /**binding title property with setTitle function to class ActivityStore */
     /**when function is bound to class i can use this keyword to access class property */
     /** () =>  arrow function so i don't have to explicitly bind function like setTitle:action.bound */

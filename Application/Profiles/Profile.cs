@@ -1,5 +1,6 @@
-﻿using Domain;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+
+using Domain;
 
 namespace Application.Profiles
 {
